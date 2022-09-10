@@ -16,3 +16,29 @@ class Solution {
         return -1;
     }
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+//solution by https://leetcode.com/alexander/
+
+
+class Solution {
+    public int pivotIndex(int[] nums) {
+        int total=0,sum=0;
+        for(int n : nums) total+=n;
+        for(int i=0;i<nums.length;sum+=nums[i++])
+            if(2 * sum == total - nums[i]) return i;
+        return -1;
+    }
+}
+/*
+total = (sum of left of pivot) +(sum of right of pivot) + pivot  //EQUATION 1
+
+our condition is
+    (sum of left of pivot) == (sum of right of pivot)
+therefore, EQATION 1 becomes
+    total = 2 * (sum of left of pivot) + pivot
+    total - pivot = 2 * (sum of right of pivot)
+
+
+*/
